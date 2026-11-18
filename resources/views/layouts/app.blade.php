@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f8ff">
+    <meta name="description" content="Informasi edukatif tentang insomnia dan screening kualitas tidur remaja.">
+    <title>@yield('title', 'Beranda') · Insomnia Remaja</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-800 antialiased">
+    <a href="#konten" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-white focus:px-4 focus:py-3 focus:font-semibold focus:text-blue-700 focus:shadow-lg">Lewati ke konten</a>
+
+    <div class="border-b border-blue-100 bg-blue-50/80">
+        <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-2.5 text-xs font-medium text-slate-600 sm:px-8">
+            <span class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-blue-500"></span> Ruang informasi tidur yang lebih sehat</span>
+            <a class="transition hover:text-blue-700" href="mailto:admin@screeninginsomniaremaja.com">admin@screeninginsomniaremaja.com</a>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+            <a href="{{ route('home') }}" class="group flex items-center gap-3" aria-label="Insomnia Remaja, beranda">
+                <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-blue-700 text-white shadow-lg shadow-blue-700/20 transition group-hover:-rotate-3">
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" aria-hidden="true"><path d="M19.2 15.7A8 8 0 0 1 8.3 4.8a8.1 8.1 0 1 0 10.9 10.9Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m16.8 5.2.5 1.4 1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4Z" fill="currentColor"/></svg>
+                </span>
+                <span>
+                    <span class="block text-base font-extrabold tracking-tight text-slate-900">Insomnia<span class="text-blue-700">Remaja</span></span>
+                    <span class="block text-[11px] font-medium tracking-wide text-slate-500">EDUKASI &amp; KUALITAS TIDUR</span>
+                </span>
+            </a>
+
+            <nav class="hidden items-center gap-1 lg:flex" aria-label="Navigasi utama">
+                <a href="{{ route('home') }}" @class(['rounded-full px-4 py-2 text-sm font-semibold transition', 'bg-blue-50 text-blue-700' => request()->routeIs('home'), 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' => !request()->routeIs('home')]) @if(request()->routeIs('home')) aria-current="page" @endif>Beranda</a>
+                <a href="{{ route('medical') }}" @class(['rounded-full px-4 py-2 text-sm font-semibold transition', 'bg-blue-50 text-blue-700' => request()->routeIs('medical'), 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' => !request()->routeIs('medical')]) @if(request()->routeIs('medical')) aria-current="page" @endif>Masalah Medis</a>
+                <a href="{{ route('screening') }}" @class(['rounded-full px-4 py-2 text-sm font-semibold transition', 'bg-blue-50 text-blue-700' => request()->routeIs('screening'), 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' => !request()->routeIs('screening')]) @if(request()->routeIs('screening')) aria-current="page" @endif>Screening</a>
+                <a href="{{ route('about') }}" @class(['rounded-full px-4 py-2 text-sm font-semibold transition', 'bg-blue-50 text-blue-700' => request()->routeIs('about'), 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' => !request()->routeIs('about')]) @if(request()->routeIs('about')) aria-current="page" @endif>Tentang</a>
+                <a href="{{ route('contact') }}" @class(['ml-2 rounded-full px-5 py-2.5 text-sm font-bold transition', 'bg-blue-700 text-white shadow-md shadow-blue-700/20 hover:bg-blue-800' => request()->routeIs('contact'), 'bg-slate-900 text-white hover:bg-blue-800' => !request()->routeIs('contact')])>Kontak</a>
+            </nav>
+
+            <button type="button" class="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 lg:hidden" aria-label="Buka menu" aria-expanded="false" aria-controls="menu-mobile" data-menu-toggle>
+                <svg data-menu-open-icon viewBox="0 0 24 24" class="h-5 w-5" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                <svg data-menu-close-icon viewBox="0 0 24 24" class="hidden h-5 w-5" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+        </div>
+        <nav id="menu-mobile" class="hidden border-t border-slate-100 bg-white px-5 py-3 lg:hidden" aria-label="Navigasi seluler" data-mobile-menu>
+            <div class="mx-auto grid max-w-7xl gap-1 sm:px-3">
+                <a href="{{ route('home') }}" class="rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Beranda</a>
+                <a href="{{ route('medical') }}" class="rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Masalah Medis</a>
+                <a href="{{ route('screening') }}" class="rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Screening Insomnia</a>
+                <a href="{{ route('about') }}" class="rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Tentang Kami</a>
+                <a href="{{ route('contact') }}" class="rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Kontak</a>
+            </div>
+        </nav>
+    </header>
+
+    <main id="konten">
+        @yield('content')
+    </main>
+
+    <footer class="mt-20 bg-slate-950 text-slate-300">
+        <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.3fr_1fr_1fr]">
+            <div>
+                <a href="{{ route('home') }}" class="inline-flex items-center gap-3 text-white">
+                    <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-600">
+                        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" aria-hidden="true"><path d="M19.2 15.7A8 8 0 0 1 8.3 4.8a8.1 8.1 0 1 0 10.9 10.9Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </span>
+                    <span class="font-extrabold">Insomnia<span class="text-blue-400">Remaja</span></span>
+                </a>
+                <p class="mt-4 max-w-sm text-sm leading-7 text-slate-400">Temukan informasi sederhana tentang insomnia dan kebiasaan tidur yang mendukung keseharian remaja.</p>
+            </div>
+            <div>
+                <h2 class="text-sm font-bold text-white">Jelajahi</h2>
+                <ul class="mt-4 space-y-3 text-sm text-slate-400">
+                    <li><a class="transition hover:text-white" href="{{ route('home') }}">Beranda</a></li>
+                    <li><a class="transition hover:text-white" href="{{ route('medical') }}">Masalah medis</a></li>
+                    <li><a class="transition hover:text-white" href="{{ route('screening') }}">Screening insomnia</a></li>
+                    <li><a class="transition hover:text-white" href="{{ route('about') }}">Tentang kami</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="text-sm font-bold text-white">Hubungi kami</h2>
+                <ul class="mt-4 space-y-3 text-sm text-slate-400">
+                    <li><a class="transition hover:text-white" href="mailto:admin@screeninginsomniaremaja.com">admin@screeninginsomniaremaja.com</a></li>
+                    <li><a class="transition hover:text-white" href="https://wa.me/6282383006989">WhatsApp: +62 823-8300-6989</a></li>
+                    <li><a class="transition hover:text-white" href="{{ route('contact') }}">Kirim pesan</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10">
+            <div class="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-slate-500 sm:px-8 md:flex-row md:items-center md:justify-between">
+                <p>&copy; {{ date('Y') }} Screening Insomnia Remaja.</p>
+                <p>Informasi pada situs ini bersifat edukatif dan bukan pengganti diagnosis tenaga kesehatan.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
