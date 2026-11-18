@@ -11,6 +11,395 @@
     background-color: #f4f7fc;
 }
 
+.fi-body.fi-panel-admin {
+    background: #fff;
+}
+
+.ir-admin-login {
+    display: grid;
+    min-height: 100svh;
+    grid-template-columns: minmax(0, 1.04fr) minmax(28rem, 0.96fr);
+    background: #fff;
+}
+
+.ir-admin-login__brand {
+    position: relative;
+    display: flex;
+    min-height: 100svh;
+    flex-direction: column;
+    overflow: hidden;
+    padding: clamp(2rem, 4vw, 3.5rem);
+    color: #fff;
+    background:
+        radial-gradient(ellipse at 85% 43%, rgb(56 189 248 / 0.18), transparent 42%),
+        linear-gradient(145deg, #102a3d 0%, #123b53 48%, #0b283c 100%);
+    isolation: isolate;
+}
+
+.ir-admin-login__brand::before,
+.ir-admin-login__brand::after {
+    position: absolute;
+    z-index: -1;
+    border: 1px solid rgb(186 230 253 / 0.08);
+    border-radius: 9999px;
+    content: '';
+    pointer-events: none;
+}
+
+.ir-admin-login__brand::before {
+    top: 14%;
+    right: -15rem;
+    width: 34rem;
+    height: 34rem;
+}
+
+.ir-admin-login__brand::after {
+    top: 19%;
+    right: -11rem;
+    width: 26rem;
+    height: 26rem;
+}
+
+.ir-admin-login__brand-header {
+    z-index: 1;
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.ir-admin-login__brand-icon {
+    display: grid;
+    width: 3.25rem;
+    height: 3.25rem;
+    place-items: center;
+    border: 1px solid rgb(255 255 255 / 0.22);
+    border-radius: 1.1rem;
+    background: rgb(255 255 255 / 0.1);
+    color: #fbbf66;
+}
+
+.ir-admin-login__brand-icon svg {
+    width: 1.65rem;
+    height: 1.65rem;
+}
+
+.ir-admin-login__brand-name strong,
+.ir-admin-login__brand-name small {
+    display: block;
+}
+
+.ir-admin-login__brand-name strong {
+    color: #fff;
+    font-size: 1.02rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.ir-admin-login__brand-name small {
+    margin-top: 0.15rem;
+    color: #c6d9e7;
+    font-size: 0.75rem;
+}
+
+.ir-admin-login__brand-copy {
+    z-index: 1;
+    max-width: 40rem;
+    margin-top: auto;
+    padding-bottom: 1rem;
+}
+
+.ir-admin-login__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid rgb(186 230 253 / 0.24);
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.08);
+    color: #f8d49a;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.ir-admin-login__brand-copy h2 {
+    margin-top: 1.5rem;
+    color: #fff;
+    font-size: clamp(2.25rem, 4vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 1.08;
+}
+
+.ir-admin-login__brand-copy p {
+    max-width: 32rem;
+    margin-top: 1.15rem;
+    color: #d0e2ec;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.ir-admin-login__scene {
+    position: absolute;
+    right: -0.5rem;
+    bottom: 4rem;
+    z-index: -1;
+    width: min(54%, 32rem);
+    opacity: 0.9;
+}
+
+.ir-admin-login__scene svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.ir-admin-login__brand-footer {
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: 2.5rem;
+    color: #c4d7e2;
+    font-size: 0.8rem;
+}
+
+.ir-admin-login__brand-footer svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    color: #8fe1c8;
+}
+
+.ir-admin-login__form-panel {
+    display: grid;
+    min-height: 100svh;
+    align-items: center;
+    padding: clamp(2rem, 5vw, 5.5rem);
+    background: #fff;
+}
+
+.ir-admin-login__form-content {
+    width: min(100%, 33rem);
+    margin-inline: auto;
+}
+
+.ir-admin-login__eyebrow {
+    color: #2563eb;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.ir-admin-login__form-content h1 {
+    margin-top: 0.65rem;
+    color: #142b3c;
+    font-size: clamp(2rem, 3vw, 2.65rem);
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+}
+
+.ir-admin-login__intro {
+    margin-top: 0.7rem;
+    color: #718096;
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.ir-admin-login__form {
+    margin-top: 2.25rem;
+}
+
+.ir-admin-login__form .fi-btn {
+    width: 100%;
+    min-height: 3.25rem;
+    justify-content: center;
+    border-radius: 0.85rem;
+    font-weight: 750;
+}
+
+.ir-admin-login__form .fi-input-wrp {
+    min-height: 3.35rem;
+    border-radius: 0.8rem;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.ir-admin-login__form .fi-input-wrp:focus-within {
+    box-shadow: 0 0 0 3px rgb(37 99 235 / 0.12);
+}
+
+.ir-admin-login__note {
+    margin-top: 1.75rem;
+    color: #91a0af;
+    font-size: 0.78rem;
+    line-height: 1.65;
+    text-align: center;
+}
+
+.ir-admin-login__form-content :focus-visible {
+    outline-color: #2563eb;
+    outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+    .ir-admin-login {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ir-admin-login__brand {
+        min-height: auto;
+        padding: 0.75rem 1rem 1rem;
+    }
+
+    .ir-admin-login__brand-icon {
+        width: 2.35rem;
+        height: 2.35rem;
+        border-radius: 0.8rem;
+    }
+
+    .ir-admin-login__brand-copy {
+        margin-top: 0.7rem;
+        padding-bottom: 0;
+    }
+
+    .ir-admin-login__badge {
+        display: none;
+    }
+
+    .ir-admin-login__brand-copy h2 {
+        max-width: 31rem;
+        margin-top: 0;
+        font-size: clamp(1.2rem, 5vw, 1.5rem);
+        line-height: 1.15;
+    }
+
+    .ir-admin-login__brand-copy p,
+    .ir-admin-login__scene,
+    .ir-admin-login__brand-footer,
+    .ir-admin-login__eyebrow {
+        display: none;
+    }
+
+    .ir-admin-login__form-panel {
+        min-height: 0;
+        align-items: start;
+        padding: 1.2rem 1rem 1.5rem;
+    }
+
+    .ir-admin-login__form-content h1 {
+        margin-top: 0;
+        font-size: 1.55rem;
+    }
+
+    .ir-admin-login__intro {
+        margin-top: 0.35rem;
+        font-size: 0.82rem;
+        line-height: 1.45;
+    }
+
+    .ir-admin-login__form {
+        margin-top: 1.1rem;
+    }
+
+    .ir-admin-login__form .fi-sc-form {
+        gap: 1rem;
+    }
+
+    .ir-admin-login__form .fi-fo-field {
+        row-gap: 0.35rem;
+    }
+
+    .ir-admin-login__form .fi-input-wrp {
+        min-height: 2.75rem;
+    }
+
+    .ir-admin-login__form .fi-btn {
+        min-height: 2.8rem;
+    }
+
+    .ir-admin-login__note {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .ir-admin-login__brand {
+        padding-inline: 1rem;
+    }
+
+    .ir-admin-login__form-panel {
+        padding-inline: 1rem;
+    }
+}
+
+.fi-simple-layout {
+    position: relative;
+    min-height: 100svh;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgb(191 219 254 / 0.8), transparent 46%),
+        linear-gradient(145deg, #f7f9fd 0%, #edf3fb 100%);
+}
+
+.fi-simple-main-ctn {
+    display: flex;
+    min-height: 100svh;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+}
+
+.fi-simple-main {
+    width: 100%;
+    max-width: 29rem;
+}
+
+.fi-simple-page-content {
+    padding: clamp(1.25rem, 5vw, 2rem);
+    border: 1px solid rgb(226 232 240 / 0.9);
+    border-radius: 1.5rem;
+    background: rgb(255 255 255 / 0.96);
+    box-shadow: 0 24px 70px rgb(15 23 42 / 0.11), 0 2px 8px rgb(15 23 42 / 0.035);
+}
+
+.fi-simple-header {
+    gap: 0.65rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.fi-simple-header-heading {
+    color: #0f172a;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
+    font-weight: 750;
+    letter-spacing: -0.04em;
+}
+
+.fi-simple-header-subheading {
+    max-width: 24rem;
+    margin-inline: auto;
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.fi-simple-page-content .fi-btn-primary {
+    min-height: 3rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 6px 16px rgb(37 99 235 / 0.2);
+}
+
+.fi-simple-page-content .fi-input-wrp {
+    border-radius: 0.8rem;
+    transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.fi-simple-page-content .fi-input-wrp:focus-within {
+    box-shadow: 0 0 0 3px rgb(59 130 246 / 0.12);
+}
+
 .fi-sidebar {
     border-inline-end: 1px solid #e2e8f0;
 }
@@ -133,6 +522,19 @@
 }
 
 @media (max-width: 640px) {
+    .fi-simple-main-ctn {
+        padding: 1rem;
+    }
+
+    .fi-simple-page-content {
+        border-radius: 1.125rem;
+        box-shadow: 0 18px 48px rgb(15 23 42 / 0.09);
+    }
+
+    .fi-simple-header {
+        margin-bottom: 1.25rem;
+    }
+
     .fi-admin-dashboard .fi-header {
         padding: 1.125rem;
         border-radius: 1.125rem;

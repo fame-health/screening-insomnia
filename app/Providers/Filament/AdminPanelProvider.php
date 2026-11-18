@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
+use App\Filament\Pages\Auth\Login;
 use App\Filament\Widgets\AdminOverview;
 use App\Filament\Widgets\GenderByInstrumentChart;
 use App\Filament\Widgets\GenderDistributionChart;
@@ -36,7 +37,7 @@ class AdminPanelProvider extends PanelProvider
             ->favicon(asset('favicon.ico'))
             ->font('Manrope')
             ->defaultThemeMode(ThemeMode::Light)
-            ->login()
+            ->login(Login::class)
             ->colors([
                 'primary' => Color::Blue,
             ])

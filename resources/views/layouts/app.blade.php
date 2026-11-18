@@ -1,4 +1,15 @@
-@php($adminLoginUrl = \Filament\Facades\Filament::getPanel('admin')->getLoginUrl())
+@php
+    $adminLoginUrl = \Filament\Facades\Filament::getPanel('admin')->getLoginUrl();
+    $siteName = 'Insomnia Remaja';
+    $pageTitle = trim($__env->yieldContent('title', 'Edukasi Tidur Remaja'));
+    $metaTitle = $pageTitle . ' | ' . $siteName;
+    $metaDescription = trim($__env->yieldContent('meta_description', 'Informasi edukatif tentang insomnia, kebiasaan tidur sehat, dan screening kualitas tidur remaja.'));
+    $siteUrl = rtrim(config('app.url'), '/');
+    $requestPath = request()->getPathInfo();
+    $canonicalUrl = $siteUrl . ($requestPath === '/' ? '/' : $requestPath);
+    $socialImageUrl = $siteUrl . '/images/og-insomnia-remaja.png';
+    $socialImageSecureUrl = preg_replace('/^http:/i', 'https:', $socialImageUrl);
+@endphp
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,31 +17,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f4f8ff">
     <meta name="color-scheme" content="light">
-    <meta name="application-name" content="Insomnia Remaja">
+    <meta name="application-name" content="{{ $siteName }}">
+    <meta name="author" content="{{ $siteName }}">
     <meta name="robots" content="{{ app()->environment('production') ? 'index, follow, max-image-preview:large' : 'noindex, nofollow' }}">
-    <meta name="description" content="@yield('meta_description', 'Informasi edukatif tentang insomnia, kebiasaan tidur sehat, dan screening kualitas tidur remaja.')">
-    <link rel="canonical" href="{{ url()->current() }}">
+    <meta name="description" content="{{ $metaDescription }}">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
     <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="48x48" type="image/x-icon">
     <link rel="icon" href="{{ asset('favicon.png') }}" sizes="48x48" type="image/png">
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" sizes="180x180">
-    <title>@yield('title', 'Edukasi Tidur Remaja') | Insomnia Remaja</title>
+    <title>{{ $metaTitle }}</title>
 
     <meta property="og:locale" content="id_ID">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Insomnia Remaja">
-    <meta property="og:title" content="@yield('title', 'Edukasi Tidur Remaja') | Insomnia Remaja">
-    <meta property="og:description" content="@yield('meta_description', 'Informasi edukatif tentang insomnia, kebiasaan tidur sehat, dan screening kualitas tidur remaja.')">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('images/og-insomnia-remaja.png') }}">
+    <meta property="og:site_name" content="{{ $siteName }}">
+    <meta property="og:title" content="{{ $metaTitle }}">
+    <meta property="og:description" content="{{ $metaDescription }}">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:image" content="{{ $socialImageUrl }}">
+    <meta property="og:image:secure_url" content="{{ $socialImageSecureUrl }}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Insomnia Remaja — edukasi tidur dan screening kualitas tidur remaja">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('title', 'Edukasi Tidur Remaja') | Insomnia Remaja">
-    <meta name="twitter:description" content="@yield('meta_description', 'Informasi edukatif tentang insomnia, kebiasaan tidur sehat, dan screening kualitas tidur remaja.')">
-    <meta name="twitter:image" content="{{ asset('images/og-insomnia-remaja.png') }}">
+    <meta name="twitter:title" content="{{ $metaTitle }}">
+    <meta name="twitter:description" content="{{ $metaDescription }}">
+    <meta name="twitter:image" content="{{ $socialImageUrl }}">
     <meta name="twitter:image:alt" content="Insomnia Remaja — edukasi tidur dan screening kualitas tidur remaja">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -41,7 +54,7 @@
                 '@type' => 'WebSite',
                 'name' => 'Insomnia Remaja',
                 'alternateName' => 'Edukasi dan Screening Tidur Remaja',
-                'url' => url('/'),
+                'url' => $siteUrl . '/',
                 'inLanguage' => 'id-ID',
             ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}
         </script>
@@ -93,7 +106,7 @@
                 <a href="{{ route('screening') }}" class="rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Screening Insomnia</a>
                 <a href="{{ route('about') }}" class="rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Tentang Kami</a>
                 <a href="{{ route('contact') }}" class="rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Kontak</a>
-                <a href="{{ $adminLoginUrl }}" class="mt-1 inline-flex items-center gap-2 rounded-lg border-t border-slate-100 px-3 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50">
+                <a href="{{ $adminLoginUrl }}" class="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-950 px-3 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-slate-800">
                     <svg viewBox="0 0 20 20" class="h-4 w-4" fill="none" aria-hidden="true"><path d="M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.5 6.5a5.5 5.5 0 0 1 11 0M15 7h3m-1.5-1.5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                     Login Admin
                 </a>
