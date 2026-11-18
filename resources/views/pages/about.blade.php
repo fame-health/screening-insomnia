@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang Kami')
+@section('title', 'Tentang Proyek')
+@section('meta_description', 'Kenali tujuan proyek edukasi Insomnia Remaja, latar belakangnya, dan cara menggunakan screening tidur dengan bijak.')
 
 @section('content')
     <section class="bg-blue-50/70">

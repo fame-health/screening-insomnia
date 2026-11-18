@@ -4,9 +4,47 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f4f8ff">
-    <meta name="description" content="Informasi edukatif tentang insomnia dan screening kualitas tidur remaja.">
-    <title>@yield('title', 'Beranda') · Insomnia Remaja</title>
+    <meta name="color-scheme" content="light">
+    <meta name="application-name" content="Insomnia Remaja">
+    <meta name="robots" content="{{ app()->environment('production') ? 'index, follow, max-image-preview:large' : 'noindex, nofollow' }}">
+    <meta name="description" content="@yield('meta_description', 'Informasi edukatif tentang insomnia, kebiasaan tidur sehat, dan screening kualitas tidur remaja.')">
+    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="48x48" type="image/x-icon">
+    <link rel="icon" href="{{ asset('favicon.png') }}" sizes="48x48" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}" sizes="180x180">
+    <title>@yield('title', 'Edukasi Tidur Remaja') | Insomnia Remaja</title>
+
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Insomnia Remaja">
+    <meta property="og:title" content="@yield('title', 'Edukasi Tidur Remaja') | Insomnia Remaja">
+    <meta property="og:description" content="@yield('meta_description', 'Informasi edukatif tentang insomnia, kebiasaan tidur sehat, dan screening kualitas tidur remaja.')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('images/og-insomnia-remaja.png') }}">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Insomnia Remaja — edukasi tidur dan screening kualitas tidur remaja">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'Edukasi Tidur Remaja') | Insomnia Remaja">
+    <meta name="twitter:description" content="@yield('meta_description', 'Informasi edukatif tentang insomnia, kebiasaan tidur sehat, dan screening kualitas tidur remaja.')">
+    <meta name="twitter:image" content="{{ asset('images/og-insomnia-remaja.png') }}">
+    <meta name="twitter:image:alt" content="Insomnia Remaja — edukasi tidur dan screening kualitas tidur remaja">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @if(request()->routeIs('home'))
+        <script type="application/ld+json">
+            {!! json_encode([
+                '@context' => 'https://schema.org',
+                '@type' => 'WebSite',
+                'name' => 'Insomnia Remaja',
+                'alternateName' => 'Edukasi dan Screening Tidur Remaja',
+                'url' => url('/'),
+                'inLanguage' => 'id-ID',
+            ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}
+        </script>
+    @endif
 </head>
 <body class="min-h-screen bg-slate-50 font-sans text-slate-800 antialiased">
     <a href="#konten" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-white focus:px-4 focus:py-3 focus:font-semibold focus:text-blue-700 focus:shadow-lg">Lewati ke konten</a>

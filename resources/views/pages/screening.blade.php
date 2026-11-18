@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Screening Insomnia Remaja')
+@section('title', 'Screening Kualitas Tidur')
+@section('meta_description', 'Isi screening edukatif tentang pola tidur remaja dan lihat ringkasan jawaban sebagai bahan refleksi, bukan diagnosis medis.')
 
 @section('content')
     <section class="bg-blue-50/70">

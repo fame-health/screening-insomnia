@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Masalah Medis')
+@section('title', 'Dampak Medis Gangguan Tidur')
+@section('meta_description', 'Kenali hubungan pola tidur dengan energi, fokus, dan suasana hati, serta pahami perbedaan insomnia akut dan kronis.')
 
 @section('content')
     <section class="bg-blue-50/70">

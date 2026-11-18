@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Beranda')
+@section('title', 'Edukasi Insomnia dan Tidur')
+@section('meta_description', 'Pelajari insomnia dan kebiasaan tidur sehat, lalu coba screening edukatif untuk mengenali pola istirahat remaja.')
 
 @section('content')
     <section class="relative isolate overflow-hidden bg-blue-700 text-white">

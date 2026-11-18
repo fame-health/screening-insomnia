@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Kontak')
+@section('meta_description', 'Hubungi tim proyek Insomnia Remaja melalui WhatsApp, email, atau formulir untuk menyampaikan pertanyaan dan masukan.')
 
 @section('content')
     <section class="bg-blue-50/70">
