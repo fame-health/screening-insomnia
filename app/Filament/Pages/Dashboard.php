@@ -11,13 +11,18 @@ use Illuminate\Contracts\Support\Htmlable;
 
 class Dashboard extends BaseDashboard
 {
-    protected static ?string $title = 'Dashboard Insomnia';
+    protected static ?string $title = 'Ringkasan Insomnia';
 
     protected static ?string $navigationLabel = 'Dashboard';
 
     public function getSubheading(): string|Htmlable|null
     {
-        return 'Pantau hasil screening, kelompok peserta, dan pertanyaan yang aktif. Ringkasan ini bukan data diagnosis.';
+        return 'Pantau aktivitas screening dan data peserta dalam satu tempat. Ringkasan ini bersifat edukatif, bukan diagnosis.';
+    }
+
+    public function getPageClasses(): array
+    {
+        return ['fi-admin-dashboard'];
     }
 
     public function getColumns(): int|array

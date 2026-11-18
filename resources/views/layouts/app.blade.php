@@ -1,3 +1,4 @@
+@php($adminLoginUrl = \Filament\Facades\Filament::getPanel('admin')->getLoginUrl())
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -74,6 +75,10 @@
                 <a href="{{ route('screening') }}" @class(['rounded-full px-4 py-2 text-sm font-semibold transition', 'bg-blue-50 text-blue-700' => request()->routeIs('screening'), 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' => !request()->routeIs('screening')]) @if(request()->routeIs('screening')) aria-current="page" @endif>Screening</a>
                 <a href="{{ route('about') }}" @class(['rounded-full px-4 py-2 text-sm font-semibold transition', 'bg-blue-50 text-blue-700' => request()->routeIs('about'), 'text-slate-600 hover:bg-slate-100 hover:text-slate-900' => !request()->routeIs('about')]) @if(request()->routeIs('about')) aria-current="page" @endif>Tentang</a>
                 <a href="{{ route('contact') }}" @class(['ml-2 rounded-full px-5 py-2.5 text-sm font-bold transition', 'bg-blue-700 text-white shadow-md shadow-blue-700/20 hover:bg-blue-800' => request()->routeIs('contact'), 'bg-slate-900 text-white hover:bg-blue-800' => !request()->routeIs('contact')])>Kontak</a>
+                <a href="{{ $adminLoginUrl }}" class="ml-1 inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-4 py-2.5 text-sm font-bold text-blue-700 transition hover:border-blue-300 hover:bg-blue-100">
+                    <svg viewBox="0 0 20 20" class="h-4 w-4" fill="none" aria-hidden="true"><path d="M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.5 6.5a5.5 5.5 0 0 1 11 0M15 7h3m-1.5-1.5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    Login Admin
+                </a>
             </nav>
 
             <button type="button" class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 sm:h-11 sm:w-11 lg:hidden" aria-label="Buka menu" aria-expanded="false" aria-controls="menu-mobile" data-menu-toggle>
@@ -88,6 +93,10 @@
                 <a href="{{ route('screening') }}" class="rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Screening Insomnia</a>
                 <a href="{{ route('about') }}" class="rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Tentang Kami</a>
                 <a href="{{ route('contact') }}" class="rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-700 hover:bg-blue-50 hover:text-blue-700">Kontak</a>
+                <a href="{{ $adminLoginUrl }}" class="mt-1 inline-flex items-center gap-2 rounded-lg border-t border-slate-100 px-3 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50">
+                    <svg viewBox="0 0 20 20" class="h-4 w-4" fill="none" aria-hidden="true"><path d="M10 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.5 6.5a5.5 5.5 0 0 1 11 0M15 7h3m-1.5-1.5v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    Login Admin
+                </a>
             </div>
         </nav>
     </header>

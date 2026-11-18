@@ -8,6 +8,7 @@ use App\Filament\Widgets\GenderByInstrumentChart;
 use App\Filament\Widgets\GenderDistributionChart;
 use App\Filament\Widgets\LatestScreeningsTable;
 use App\Filament\Widgets\MonthlyScreeningTrendChart;
+use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -30,7 +31,11 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->brandName('Insomnia Remaja')
+            ->favicon(asset('favicon.ico'))
+            ->font('Manrope')
+            ->defaultThemeMode(ThemeMode::Light)
             ->login()
             ->colors([
                 'primary' => Color::Blue,
